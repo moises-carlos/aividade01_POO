@@ -1,5 +1,7 @@
 package src.models.materiais;
 
+import src.interfaces.Exibivel;
+
 public abstract class Material implements Exibivel {
     private int codigo;
     private String titulo;
@@ -33,5 +35,7 @@ public abstract class Material implements Exibivel {
     }
 
     public abstract String getDetalhesEspecificos();
+
+    public abstract String exibirResumo();
 }
 

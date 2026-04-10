@@ -14,22 +14,22 @@ public class Professor extends Usuario{
 
     @Override
     public int getLimiteEmprestimos() {
-        return 0;
+        return maxEmprestimos;
     }
 
     @Override
     public int getPrazoDevolucaoDias() {
-        return 0;
+        return prazoDias;
     }
 
     @Override
     public double getValorMultaDiaria() {
-        return 0;
+        return multaPorDia;
     }
 
     @Override
     public String getTipoUsuario() {
-        return "";
+        return "Professor";
     }
 
     @Override

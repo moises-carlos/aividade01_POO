@@ -29,7 +29,7 @@ public class Aluno extends Usuario{
 
     @Override
     public String getTipoUsuario() {
-        return "src.models.usuarios.Aluno";
+        return "Aluno";
     }
     @Override
     public String exibirResumo() {

@@ -1,5 +1,7 @@
 package src.models.usuarios;
 
+import src.interfaces.Exibivel;
+
 public abstract class Usuario implements Exibivel {
     private int codigo;
     private String nome;
