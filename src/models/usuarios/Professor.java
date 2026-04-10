@@ -1,4 +1,4 @@
-package atividade;
+package src.models.usuarios;
 
 public class Professor extends Usuario{
     private int maxEmprestimos = 5;

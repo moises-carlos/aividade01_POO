@@ -1,5 +1,6 @@
-package atividade;
-    public abstract class Usuario implements Exibivel {
+package src.models.usuarios;
+
+public abstract class Usuario implements Exibivel {
     private int codigo;
     private String nome;
     private String email;

@@ -1,4 +1,5 @@
-package atividade;
+package src.models.usuarios;
+
 public class Aluno extends Usuario{
     private int maxEmprestimos = 3;
     private int prazoDias = 7;
@@ -28,7 +29,7 @@ public class Aluno extends Usuario{
 
     @Override
     public String getTipoUsuario() {
-        return "Aluno";
+        return "src.models.usuarios.Aluno";
     }
     @Override
     public String exibirResumo() {

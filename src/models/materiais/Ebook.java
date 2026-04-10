@@ -1,4 +1,4 @@
-package atividade;
+package src.models.materiais;
 
 public class Ebook extends Material {
     private String formato;

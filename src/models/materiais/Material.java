@@ -1,6 +1,6 @@
-package atividade;
+package src.models.materiais;
 
-    public abstract class Material implements Exibivel {
+public abstract class Material implements Exibivel {
     private int codigo;
     private String titulo;
     private int anoPublicacao;

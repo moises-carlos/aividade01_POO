@@ -1,4 +1,4 @@
-package atividade;
+package src.models.materiais;
 
 public class Revista extends Material {
     private String edicao;
