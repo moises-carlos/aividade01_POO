@@ -1,4 +1,9 @@
-package atividade;
+package src.models;
+import src.interfaces.CalculavelMulta;
+import src.interfaces.Exibivel;
+import src.models.materiais.Material;
+import src.models.usuarios.Usuario;
+
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 public class Emprestimo implements Exibivel, CalculavelMulta {
@@ -10,19 +15,66 @@ public class Emprestimo implements Exibivel, CalculavelMulta {
     private LocalDate dataPrevistaDevolucao;
     private LocalDate dataRealDevolucao;
 
-    public Emprestimo(int id, Usuario usuario, Material material,
-                      LocalDate dataEmprestimo) {
+    public Emprestimo(int id, Usuario usuario, Material material) {
         this.id = id;
         this.usuario = usuario;
         this.material = material;
-        this.dataEmprestimo = dataEmprestimo;
-
+        dataEmprestimo = LocalDate.now();
         this.dataPrevistaDevolucao =
                 dataEmprestimo.plusDays(usuario.getPrazoDevolucaoDias());
+        material.reduzirQuantidade();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Material getMaterial() {
+        return material;
+    }
+
+    public void setMaterial(Material material) {
+        this.material = material;
+    }
+
+    public LocalDate getDataEmprestimo() {
+        return dataEmprestimo;
+    }
+
+    public void setDataEmprestimo(LocalDate dataEmprestimo) {
+        this.dataEmprestimo = dataEmprestimo;
+    }
+
+    public LocalDate getDataPrevistaDevolucao() {
+        return dataPrevistaDevolucao;
+    }
+
+    public void setDataPrevistaDevolucao(LocalDate dataPrevistaDevolucao) {
+        this.dataPrevistaDevolucao = dataPrevistaDevolucao;
+    }
+
+    public LocalDate getDataRealDevolucao() {
+        return dataRealDevolucao;
+    }
+
+    public void setDataRealDevolucao(LocalDate dataRealDevolucao) {
+        this.dataRealDevolucao = dataRealDevolucao;
     }
 
     public void registrarDevolucao(LocalDate dataDevolucao) {
+        if (isFinalizado()) {
+            throw new IllegalStateException("Empréstimo já foi devolvido!");
+        }
         this.dataRealDevolucao = dataDevolucao;
+        this.material.aumentarQuantidade();
     }
 
     public boolean isFinalizado() {
